@@ -5,16 +5,67 @@
 }
 
 .main-container{
-  border:1px solid black;
-  width:500px;
-  height:350px;
+  width:700px;
 }
 .cont-text{
   display:flex;
   justify-content: space-between;
+  align-items: center;
 }
+  .search-bar-cont{
+    display:flex;
+  }
+
+.cont-text>h2{
+  padding-left:10px;
+  font-size:22px;
+  letter-spacing:1px;
+  color:rgb(42, 40, 40);
+}
+.cont-text>div button{
+  background:white;
+  border:2px solid rgb(75, 73, 73);
+  border-right:0px;
+  border-top-left-radius:20px;
+  border-bottom-left-radius:20px;
+  padding:5px 5px 3px 10px;
+  margin:0px;
+  cursor:pointer;
+}
+.cont-text>div input{
+  border:2px solid rgb(75, 73, 73);
+  border-left:0px;
+  border-top-right-radius:20px;
+  outline:none;
+  border-bottom-right-radius:20px;
+  padding:8px 5px;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
 .todo-table{
   width:100%;
   border:1px solid black;
   margin:5px 0px 0px 0px;
+}
+.todo-table tr{
+  display:grid;
+  grid-template-columns: 15% 45% 1fr 1fr;
+  text-align:left;
+}
+.todo-main-cont{
+  border-bottom:1px solid black;
+  padding:10px 0px;
+}
+.todo-cont-item td{
+   border-bottom:1px solid black;
+   align-items: center;
+   display:flex;
+   padding:4px 0px;
+}
+.todo-view-cont button{
+  border:1px solid black;
+  background:white;
+  padding:7px 30px;
+  cursor:pointer;
 }
