@@ -61,6 +61,13 @@
 .todo-main-cont{
   border-bottom:1px solid black;
   padding:10px 0px;
+  background:black;
+  color:white;
+}
+.todo-main-cont th{
+  cursor:default;
+  padding-left:5px;
+  letter-spacing: 1px;
 }
 .todo-cont-item td{
    border-bottom:1px solid black;

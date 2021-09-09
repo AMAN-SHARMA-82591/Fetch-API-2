@@ -9,6 +9,9 @@ function Container(){
     const [user,setUser] = useState([]);
     //index of the data
     const [click,setClick] = useState(0);
+    //sorting on data
+    const [sort,setSort] = useState(true);
+
 
     //fetching data from link and storing it in setUser state
     const getUser = async () => {
@@ -16,11 +19,11 @@ function Container(){
         setUser(await response.json());
     }
 
-
     //rendering
       useEffect(() => {
         getUser();
         },[])
+
 
 
     return(
@@ -37,7 +40,7 @@ function Container(){
                     <table className="todo-table">
                         <thead>
                             <tr className="todo-main-cont">
-                                <th>Todo Id</th>
+                                <th style={{cursor:"pointer"}} onClick={() => setSort(!sort)}>Todo Id</th>
                                 <th>Title</th>
                                 <th>Status</th>
                                 <th>Action</th>
@@ -48,7 +51,9 @@ function Container(){
                         {/* using map and filter method in show and hide data from api */}
                             <tr className="todo-cont-item">
                                 {
-                                    user.filter(todo => input === "" ?todo: todo.id.toString().includes(input.toString())).map((todo) =>{
+                                    user.filter(todo => input === "" ?todo: ("completed").includes(input) ? todo.completed === true : ("incompleted").includes(input) ? todo.completed !== true  : todo.id.toString().includes(input.toString()))
+                                    .sort((a,b) => sort? a.id - b.id : b.id - a.id)
+                                    .map((todo) =>{
                                         return(
                                             <React.Fragment key={todo.id}>
                                                 <td style={{paddingLeft:"15px"}}>{todo.id}</td>
@@ -66,6 +71,8 @@ function Container(){
                        
                     </table>
                 </div>
+
+                
                 {/* Form Container */}
                 <div className="form-container">
                                    <Form user={user} click={click} />
