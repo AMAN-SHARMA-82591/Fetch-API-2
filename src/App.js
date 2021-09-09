@@ -4,6 +4,7 @@ import Container from './Container';
 function App() {
   return (
     <div className="App">
+      {/* Main container */}
        <Container />
     </div> 
     

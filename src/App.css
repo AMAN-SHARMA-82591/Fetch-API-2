@@ -1,7 +1,12 @@
 .App {
   box-sizing:border-box;
   font-family: sans-serif;
-  margin:100px 0px 0px 0px;
+  margin:60px 0px 0px 0px;
+}
+.container-section{
+  display:flex;
+  justify-content: space-between;
+  padding:0px 50px;
 }
 
 .main-container{
@@ -68,4 +73,39 @@
   background:white;
   padding:7px 30px;
   cursor:pointer;
+}
+
+
+
+
+
+
+
+/*-----------Form Section-----------------*/
+.form-section{
+  width:450px;
+  text-align: left;
+}
+.form-section>h2{
+  margin:0px 0px 20px 0px;
+}
+.form-details{
+  border:1px solid black;
+}
+.form-details>div{
+  display:grid;
+  grid-template-columns: 40% 60%;
+  width:380px;
+  padding-left:20px;
+  text-align: left;
+}
+.form-details>div h3{
+  font-size:18px;
+  letter-spacing: 1px;
+}
+.form-details>div p{
+  font-size:16px;
+  letter-spacing: 1px;
+  color:rgb(43, 40, 40);
+  font-weight:500;
 }
