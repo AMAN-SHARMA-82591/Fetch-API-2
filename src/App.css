@@ -55,7 +55,7 @@
 }
 .todo-table tr{
   display:grid;
-  grid-template-columns: 15% 45% 1fr 1fr;
+  grid-template-columns: 12% 28% 40% 20%;
   text-align:left;
 }
 .todo-main-cont{
@@ -101,8 +101,8 @@
 }
 .form-details>div{
   display:grid;
-  grid-template-columns: 40% 60%;
-  width:380px;
+  grid-template-columns: 25% 75%;
+  width:400px;
   padding-left:20px;
   text-align: left;
 }
@@ -115,4 +115,7 @@
   letter-spacing: 1px;
   color:rgb(43, 40, 40);
   font-weight:500;
+}
+.form-items-filtered{
+  margin-bottom:20px;
 }

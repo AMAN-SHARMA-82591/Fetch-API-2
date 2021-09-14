@@ -15,7 +15,7 @@ function Container(){
 
     //fetching data from link and storing it in setUser state
     const getUser = async () => {
-        const response = await fetch('https://jsonplaceholder.typicode.com/todos');
+        const response = await fetch('https://jsonplaceholder.typicode.com/posts');
         setUser(await response.json());
     }
 
@@ -51,15 +51,15 @@ function Container(){
                         {/* using map and filter method in show and hide data from api */}
                             <tr className="todo-cont-item">
                                 {
-                                    user.filter(todo => input === "" ?todo: ("completed").includes(input) ? todo.completed === true : ("incompleted").includes(input) ? todo.completed !== true  : todo.id.toString().includes(input.toString()))
+                                    user.filter(todo => input === "" ?todo:todo.id.toString().includes(input.toString()))
                                     .sort((a,b) => sort? a.id - b.id : b.id - a.id)
                                     .map((todo) =>{
                                         return(
                                             <React.Fragment key={todo.id}>
                                                 <td style={{paddingLeft:"15px"}}>{todo.id}</td>
-                                                <td style={{paddingRight:"15px"}}>{todo.title}</td>
-                                                <td>{todo.completed === true?"Complete":"Incomplete"}</td>
-                                                <td onClick={() => setClick(todo.id-1)} className="todo-view-cont"><button>View User</button></td>
+                                                <td style={{paddingRight:"15px",fontSize:"13px"}}>{todo.title}</td>
+                                                <td style={{fontSize:"13px",paddingRight:"10px"}}>{todo.body}</td>
+                                                <td onClick={() => setClick(todo.id-1)} className="todo-view-cont"><button>View Users</button></td>
                                            
                                             </React.Fragment>
                                         )
@@ -75,7 +75,7 @@ function Container(){
                 
                 {/* Form Container */}
                 <div className="form-container">
-                                   <Form user={user} click={click} />
+                                   <Form  click={click} />
                 </div>
         </div>
     )
