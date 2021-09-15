@@ -4,13 +4,11 @@
   margin:60px 0px 0px 0px;
 }
 .container-section{
-  display:flex;
-  justify-content: space-between;
   padding:0px 50px;
 }
 
 .main-container{
-  width:700px;
+  width:100%;
 }
 .cont-text{
   display:flex;
@@ -55,7 +53,7 @@
 }
 .todo-table tr{
   display:grid;
-  grid-template-columns: 12% 28% 40% 20%;
+  grid-template-columns: 12% 28% 45% 15%;
   text-align:left;
 }
 .todo-main-cont{
@@ -90,13 +88,31 @@
 
 /*-----------Form Section-----------------*/
 .form-section{
-  width:450px;
-  text-align: left;
+  width:100%;
+  text-align: center;
+  position:relative;
+
+}
+.back-logo{
+  position:absolute;
+  top:-30px;
+  left:40px;
+  text-decoration: none;
+  color:black;
+  cursor:pointer;
+}
+.form-section>div{
+  display:flex;
+  width:100%;
+  justify-content: space-around;
+  flex-wrap:wrap;
+  margin:0px auto;
 }
 .form-section>h2{
   margin:0px 0px 20px 0px;
 }
 .form-details{
+  height:380px;
   border:1px solid black;
 }
 .form-details>div{
@@ -117,5 +133,5 @@
   font-weight:500;
 }
 .form-items-filtered{
-  margin-bottom:20px;
+  margin:0px 10px 20px 10px;
 }

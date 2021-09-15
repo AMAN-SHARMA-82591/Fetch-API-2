@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
+import {NavLink} from 'react-router-dom'
 import SearchIcon from '@material-ui/icons/Search';
-import Form from './Form';
-function Container(){
+function Container(props){
     //input text section
     const [input,setInput] = useState("");
     //fetch data from api
     const [user,setUser] = useState([]);
-    //index of the data
-    const [click,setClick] = useState(0);
     //sorting on data
     const [sort,setSort] = useState(true);
 
@@ -18,7 +16,6 @@ function Container(){
         const response = await fetch('https://jsonplaceholder.typicode.com/posts');
         setUser(await response.json());
     }
-
     //rendering
       useEffect(() => {
         getUser();
@@ -57,10 +54,14 @@ function Container(){
                                         return(
                                             <React.Fragment key={todo.id}>
                                                 <td style={{paddingLeft:"15px"}}>{todo.id}</td>
-                                                <td style={{paddingRight:"15px",fontSize:"13px"}}>{todo.title}</td>
-                                                <td style={{fontSize:"13px",paddingRight:"10px"}}>{todo.body}</td>
-                                                <td onClick={() => setClick(todo.id-1)} className="todo-view-cont"><button>View Users</button></td>
-                                           
+                                                <td style={{paddingRight:"15px",fontSize:"16px"}}>{todo.title}</td>
+                                                <td style={{fontSize:"16px",paddingRight:"10px"}}>{todo.body}</td>
+                                                <td onClick={() => props.userData(todo.id-1)} className="todo-view-cont">
+                                                    <NavLink to="./Form" >
+                                                        <button>View Users</button>
+                                                    </NavLink>
+                                                </td>
+                                                
                                             </React.Fragment>
                                         )
                                     })
@@ -70,12 +71,6 @@ function Container(){
                         </tbody>
                        
                     </table>
-                </div>
-
-                
-                {/* Form Container */}
-                <div className="form-container">
-                                   <Form  click={click} />
                 </div>
         </div>
     )

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-
+import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
+import {NavLink} from 'react-router-dom'
 const Form = ({click}) => {
     const [data,setData] = useState([])
 
@@ -15,7 +16,12 @@ const Form = ({click}) => {
 
     return(
         <div  className="form-section">
+            <NavLink to="/">
+                <KeyboardBackspaceIcon className="back-logo" fontSize="large" />
+            </NavLink>
+
          <h2>User Details</h2>
+            <div>
             {
                 data.filter(value => value.postId === click+1)
                 .map(value => {
@@ -48,6 +54,7 @@ const Form = ({click}) => {
                     )
                 })
             }
+            </div>
             
 
         </div>
